@@ -5,46 +5,46 @@ import {
   StyleSheet
 } from 'react-native';
 
-import Camera from 'react-native-camera';
+import { Router, Scene } from 'react-native-router-flux';
+import Home from './src/components/Home';
+import Camera from './src/components/Camera';
+import Final from './src/components/Final';
 
-export default class BarcodeScan extends Component {
+export default class App extends Component<{}> {
+  render() {
+    return (
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            qrcode: ''
-        }
-    }
-
-    onBarCodeRead = (e) => this.setState({qrcode: e.data});
-
-    render () {
-        return (
-            <View  style={styles.container}>
-                <Camera
-                    style={styles.preview}
-                    onBarCodeRead={this.onBarCodeRead}
-                    ref={cam => this.camera = cam}
-                    aspect={Camera.constants.Aspect.fill}
-                    >
-                        <Text style={{
-                            backgroundColor: 'white'
-                        }}>{this.state.qrcode}</Text>
-                    </Camera>
-            </View>
-        )
-    }
-
+        <Router>
+      <Scene key="root">
+        <Scene key="home"
+          component={Home}
+          title="Tropical Flooring"
+          initial
+        />
+        <Scene
+          key="camera"
+          component={Camera}
+          title="Camera"
+        />
+        <Scene
+          key="final"
+          component={Final}
+          title="Final"
+        />
+      </Scene>
+    </Router>
+    );
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'row',
-  },
-  preview: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center'
+
+var style = StyleSheet.create({
+
+  title:{
+    marginTop: 20,
+    marginLeft: 20,
+    fontSize: 20
   }
 });
+
+
