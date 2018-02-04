@@ -1,50 +1,95 @@
-import React, {Component} from 'react';
-import {
-  Text,
-  View,
-  StyleSheet
-} from 'react-native';
+// import React, {Component} from 'react';
+// import {
+//   Text,
+//   View,
+//   StyleSheet
+// } from 'react-native';
 
-import Camera from 'react-native-camera';
+// // import Camera from 'react-native-camera';
+// import {StackNavigator,} from 'react-navigation';
 
-export default class BarcodeScan extends Component {
+// const App = StackNavigator({
+//   Home: { screen: HomeScreen },
+//   Profile: { screen: ProfileScreen },
+// });
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            qrcode: ''
-        }
-    }
+// class HomeScreen extends React.Component {
+//   static navigationOptions = {
+//     title: 'Welcome',
+//   };
+//   render() {
+//     const { navigate } = this.props.navigation;
+//     return (
+//       <Button
+//         title="Go to Jane's profile"
+//         onPress={() =>
+//           navigate('Profile', { name: 'Jane' })
+//         }
+//       />
+//     );
+//   }
+// }
 
-    onBarCodeRead = (e) => this.setState({qrcode: e.data});
 
-    render () {
-        return (
-            <View  style={styles.container}>
-                <Camera
-                    style={styles.preview}
-                    onBarCodeRead={this.onBarCodeRead}
-                    ref={cam => this.camera = cam}
-                    aspect={Camera.constants.Aspect.fill}
-                    >
-                        <Text style={{
-                            backgroundColor: 'white'
-                        }}>{this.state.qrcode}</Text>
-                    </Camera>
-            </View>
-        )
-    }
+import React from 'react';
+import PropTypes from 'prop-types';
+import {Button, NavigatorIOS, Text, View} from 'react-native';
 
+export default class NavigatorIOSApp extends React.Component {
+  render() {
+    return (
+      <NavigatorIOS
+        initialRoute={{
+          component: MyScene,
+          title: 'Janna Banana Page 1',
+          // text: "yo uoods",
+          passProps: {index: 1},
+        }}
+      />
+
+    );
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'row',
-  },
-  preview: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center'
+class MyScene extends React.Component {
+  static propTypes = {
+    route: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+    }),
+    navigator: PropTypes.object.isRequired,
+  };
+
+  constructor(props, context) {
+    super(props, context);
+    this._onForward = this._onForward.bind(this);
   }
-});
+
+  _onForward() {
+    let nextIndex = ++this.props.index;
+    this.props.navigator.push({
+      component: MyScene,
+      title: 'Scene ' + nextIndex,
+      passProps: {index: nextIndex},
+    });
+  }
+
+
+
+ render() {
+    console.log('My scene??')
+    return (
+        <Text style={{ color: 'black'}}>Blah Blah Blah</Text>
+    )
+  //   return (
+  //     <View>
+  //       <Text>Current Scene: {this.props.title}</Text>
+  //       <Button
+  //         onPress={this._onForward}
+  //         title="Tap me to load the next scene"
+  //       >
+  //           Tap me to load
+  //       </Button>
+  //     </View>
+  //   );
+  }
+}
