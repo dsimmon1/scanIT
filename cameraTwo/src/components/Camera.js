@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {
   Text,
   View,
-  StyleSheet
+  StyleSheet,
+  TouchableOpacity
 } from 'react-native';
 
 import Camera from 'react-native-camera';
@@ -32,10 +33,21 @@ class BarcodeScan extends Component {
                         style={{
                             backgroundColor: 'white'
                         }}
-                          onChangeText={() => {
-                                Actions.final()
-                            }}
                         >{this.state.qrcode}</Text>
+
+                         <TouchableOpacity
+                          onPress={() => {
+                    Actions.final()
+                }}
+            >
+            <Text
+            style={
+                styles.buttonText
+            }
+            >
+            Next
+            </Text>
+            </TouchableOpacity>
                     </Camera>
             </View>
         )
@@ -52,6 +64,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
     alignItems: 'center'
+  },
+  buttonText:{
+    color: 'white',
+    borderWidth: 2,
+    borderColor: 'white',
+    padding: 3
   }
 });
 

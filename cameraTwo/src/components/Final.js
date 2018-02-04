@@ -13,6 +13,7 @@ class Final extends Component {
         <View>
       <Text style={styles.title}>
       Last Screen
+      {this.props.qrcode}
       </Text>
       </View>
         )

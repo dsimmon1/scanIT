@@ -4,7 +4,8 @@ import {
   View,
   StyleSheet,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } from 'react-native';
 
 import { Actions } from 'react-native-router-flux';
@@ -14,9 +15,9 @@ class Home extends Component {
     render () {
         return (
         <View>
-            <Text style={styles.title}>
-                Tropical Flooring
-            </Text>
+            <Image
+            
+            />
             <Text style={styles.title}>
                 Enter your username:
             </Text>
@@ -30,7 +31,9 @@ class Home extends Component {
                 }}
             />
             <TouchableOpacity
-                onPress={() => {Actions.camera()}}
+                onPress={() => {
+                    Actions.camera()
+                }}
             >
             <Text style={styles.buttonText}>
             Next
