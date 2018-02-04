@@ -14,21 +14,29 @@ class Home extends Component {
     render () {
         return (
         <View>
-      <Text style={styles.title}>
-      Tropical Flooring
-      </Text>
-      <Text style={styles.title}>
-      Enter your username:
-      </Text>
-      <TextInput style={styles.nameInput} placeholder='username'/>
-      <TouchableOpacity
-        onPress={() => {Actions.camera()}}
-      >
-      <Text style={styles.buttonText}>
-      Next
-      </Text>
-      </TouchableOpacity>
-      </View>
+            <Text style={styles.title}>
+                Tropical Flooring
+            </Text>
+            <Text style={styles.title}>
+                Enter your username:
+            </Text>
+            <TextInput 
+                style={styles.nameInput} 
+                placeholder='username'
+                onChangeText={(text) => {
+                this.setState({
+                name: text,
+                });
+                }}
+            />
+            <TouchableOpacity
+                onPress={() => {Actions.camera()}}
+            >
+            <Text style={styles.buttonText}>
+            Next
+            </Text>
+            </TouchableOpacity>
+        </View>
         )
     }
 

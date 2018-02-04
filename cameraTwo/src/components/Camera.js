@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 
 import Camera from 'react-native-camera';
+import { Actions } from 'react-native-router-flux';
 
 class BarcodeScan extends Component {
 
@@ -27,9 +28,14 @@ class BarcodeScan extends Component {
                     ref={cam => this.camera = cam}
                     aspect={Camera.constants.Aspect.fill}
                     >
-                        <Text style={{
+                        <Text 
+                        style={{
                             backgroundColor: 'white'
-                        }}>{this.state.qrcode}</Text>
+                        }}
+                          onChangeText={() => {
+                                Actions.final()
+                            }}
+                        >{this.state.qrcode}</Text>
                     </Camera>
             </View>
         )
