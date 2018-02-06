@@ -38,6 +38,28 @@ export default class App extends Component<{}> {
 }
 
 
+
+class cameraTwo extends Component {
+
+  state = {
+    isLoggedIn: false
+  }
+
+  render() {
+
+    if (this.state.isLoggedIn) 
+      return <Secured
+          onLogoutPress={() => this.setState({isLoggedIn: false})}
+        />;
+    else 
+      return <Login 
+          onLoginPress={() => this.setState({isLoggedIn: true})}
+        />;
+  }
+
+}
+
+
 var style = StyleSheet.create({
 
   title:{
@@ -47,4 +69,9 @@ var style = StyleSheet.create({
   }
 });
 
+// auth = new AppAuth({
+//     issuer: 'https://dev-360772-admin.oktapreview.com/oauth2/default',
+//     clientId: '0oadwljsn0lcjnnVY0h7',
+//     redirectUrl: 'com.oktapreview.dev-360772:/callback'
+// });
 
