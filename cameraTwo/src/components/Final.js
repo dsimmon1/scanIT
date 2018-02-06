@@ -2,82 +2,30 @@ import React, {Component} from 'react';
 import {
   Text,
   View,
-  StyleSheet,
+  StyleSheet
 } from 'react-native';
-
-import { Button, Container, Tab, Tabs, TabHeading, Header, Content, Form, Item, Input, Label } from 'native-base';
 
 
 class Final extends Component {
 
-  state = {
-    itemName: '',
-    itemCode: '',
-
-  }
-
-
     render () {
         return (
-        <Container>
-        <Content>
-        <Tabs>
-        <Tab heading={ <TabHeading><Text>Update</Text></TabHeading>}>
-          <Form>
-            <Item floatingLabel>
-              <Label>WareHouse Number</Label>
-              <Input />
-            </Item>
-            <Item floatingLabel last>
-              <Label>Quantity</Label>
-              <Input />
-            </Item>
-             <Button success block 
-            style={styles.buttonText}
-            >
-            <Text>Add to Inventory</Text>
-          </Button>
-          </Form>
-          </Tab>
-
-          <Tab heading={ <TabHeading><Text>New</Text></TabHeading>}>
-          <Form>
-            <Item floatingLabel>
-              <Label>Name</Label>
-              <Input />
-            </Item>
-            <Item floatingLabel>
-              <Label>WareHouse Number</Label>
-              <Input />
-            </Item>
-            <Item floatingLabel>
-              <Label>Description</Label>
-              <Input />
-            </Item>
-            <Item floatingLabel last>
-              <Label>Quantity</Label>
-              <Input />
-            </Item>
-             <Button success block 
-            style={styles.buttonText}
-            >
-            <Text>Add to Inventory</Text>
-          </Button>
-          </Form>
-
-          </Tab>
-          </Tabs>
-        </Content>
-      </Container>
+        <View>
+      <Text style={styles.title}>
+      Last Screen
+      {this.props.qrcode}
+      </Text>
+      </View>
         )
     }
 
 }
 
 const styles = StyleSheet.create({
- buttonText:{
-    margin: 20,
-    padding: 5
+ title:{
+    marginTop: 20,
+    marginLeft: 20,
+    fontSize: 20
   }
 });
 
