@@ -9,6 +9,7 @@ import { Router, Scene } from 'react-native-router-flux';
 import Home from './src/components/Home';
 import Camera from './src/components/Camera';
 import Final from './src/components/Final';
+import BackgroundImage from './src/components/HomeBackground';
 
 export default class App extends Component<{}> {
   render() {
@@ -17,7 +18,7 @@ export default class App extends Component<{}> {
         <Router>
       <Scene key="root">
         <Scene key="home"
-          component={Home}
+          component={BackgroundImage}
           title="Tropical Flooring"
           initial
         />
@@ -29,7 +30,7 @@ export default class App extends Component<{}> {
         <Scene
           key="final"
           component={Final}
-          title="Final"
+          title="Inventory Input"
         />
       </Scene>
     </Router>

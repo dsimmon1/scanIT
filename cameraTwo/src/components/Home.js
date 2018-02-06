@@ -8,48 +8,76 @@ import {
   Image
 } from 'react-native';
 
+import { Button, Container, Header, Content, Form, Item, Input, Label } from 'native-base';
+
+
 import { Actions } from 'react-native-router-flux';
 
 class Home extends Component {
 
+    state = {
+        name: '',
+        password: ''
+    }
+
     render () {
         return (
-        <View>
+        <Container>
             <Image
-            
+             style={{width: 300, height: 100, marginLeft: 30}}
+                source={require('../images/Tropical_Flooring_Logo_Black.png')}
             />
-            <Text style={styles.title}>
-                Enter your username:
-            </Text>
-            <TextInput 
-                style={styles.nameInput} 
-                placeholder='username'
-                onChangeText={(text) => {
+        <Content>
+          <Form style={styles.background}>
+            <Item stackedLabel>
+              <Label>Username</Label>
+              <Input
+                  onChangeText={(text) => {
                 this.setState({
                 name: text,
                 });
                 }}
-            />
-            <TouchableOpacity
-                onPress={() => {
+                value={this.state.name}
+               />
+            </Item>
+            <Item stackedLabel last>
+              <Label>Password</Label>
+              <Input
+              onChangeText={(text) => {
+                this.setState({
+                password: text,
+                });
+                }}
+                value={this.state.password}
+               />
+            </Item>
+            <Button success block 
+            style={styles.buttonText}
+            onPress={() => {
                     Actions.camera()
                 }}
             >
-            <Text style={styles.buttonText}>
-            Next
-            </Text>
-            </TouchableOpacity>
-        </View>
+            <Text>Submit</Text>
+          </Button>
+          </Form>
+        </Content>
+      </Container>
+
         )
     }
 
 }
 
 const styles = StyleSheet.create({
+    background:{
+        backgroundColor: 'rgba(255, 255, 255, 0.75)',
+        margin: 10
+    },
  title:{
     marginTop: 20,
     marginLeft: 20,
-    fontSize: 20
+    fontSize: 20,
+    textAlign: 'center'
   },
   nameInput:{
     height: 40,
@@ -58,8 +86,8 @@ const styles = StyleSheet.create({
     margin: 20
   },
   buttonText:{
-    marginLeft: 20,
-    fontSize: 20
+    margin: 20,
+    padding: 5
   }
 });
 

@@ -7,9 +7,11 @@
     "test": "jest"
   },
   "dependencies": {
+    "native-base": "^2.3.8",
     "react": "16.2.0",
     "react-native": "0.52.2",
     "react-native-camera": "^0.13.0",
+    "react-native-modal-selector": "0.0.24",
     "react-native-router-flux": "^4.0.0-beta.28"
   },
   "devDependencies": {
