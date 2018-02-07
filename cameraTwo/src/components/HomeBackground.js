@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Home from './Home';
 import {
   AppRegistry,
   Image,
@@ -6,11 +7,11 @@ import {
   Text,
 } from 'react-native';
 
-import Home from './Home';
+
 
 const remote = 'https://s15.postimg.org/tw2qkvmcb/400px.png';
 
-export default class BackgroundImage extends Component {
+export default class HomeBackground extends Component {
   render() {
     const resizeMode = 'center';
 
@@ -55,3 +56,5 @@ export default class BackgroundImage extends Component {
     );
   }
 }
+
+
