@@ -45,7 +45,7 @@ class BarcodeScan extends Component {
                 styles.buttonText
             }
             >
-            Next
+            {this.props.name}
             </Text>
             </TouchableOpacity>
                     </Camera>
