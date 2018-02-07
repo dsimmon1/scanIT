@@ -31,7 +31,7 @@ class BarcodeScan extends Component {
                     >
                         <Text 
                         style={{
-                            backgroundColor: 'white'
+                            backgroundColor: 'blue'
                         }}
                         >{this.state.qrcode}</Text>
 
