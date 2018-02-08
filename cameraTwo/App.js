@@ -20,7 +20,7 @@ export default class App extends Component<{}> {
         <Scene key="home"
           component={BackgroundImage}
           title="Log in"
-          initial
+          header={false}
         />
         <Scene
           key="camera"

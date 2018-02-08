@@ -52,7 +52,7 @@ export default class LoginForm extends Component {
 const styles = StyleSheet.create({
   container: {
    
-    marginBottom: 160,
+    marginBottom: 180,
 
   },
   input:{
