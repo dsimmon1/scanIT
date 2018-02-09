@@ -19,8 +19,8 @@ export default class App extends Component<{}> {
       <Scene key="root">
         <Scene key="home"
           component={BackgroundImage}
-          title="Tropical Flooring"
-          initial
+          title="Log in"
+          header={false}
         />
         <Scene
           key="camera"
@@ -42,9 +42,10 @@ export default class App extends Component<{}> {
 var style = StyleSheet.create({
 
   title:{
-    marginTop: 20,
+    marginTop: 5,
     marginLeft: 20,
-    fontSize: 20
+    fontSize: 20,
+    height: .5,
   }
 });
 

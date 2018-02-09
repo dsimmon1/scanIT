@@ -21,7 +21,7 @@ export default class LoginForm extends Component {
       />
         <TextInput
           placeholder = "User name or email"
-          placeholderTextColor = '#303030'
+          placeholderTextColor = '#585858'
           returnKeyType="next"
           keyboardType = "email-address"
           autoCorrect = {false}
@@ -32,7 +32,7 @@ export default class LoginForm extends Component {
 
         <TextInput
           placeholder ="Password"
-          placeholderTextColor ='#303030'
+          placeholderTextColor ='#585858'
           secureTextEntry
           returnKeyType="go"
           ref = {(input)=>this.passwordInput = input}
@@ -51,7 +51,9 @@ export default class LoginForm extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    padding :20
+   
+    marginBottom: 180,
+
   },
   input:{
     minWidth:300,
@@ -59,7 +61,7 @@ const styles = StyleSheet.create({
     height : 40,
     backgroundColor: 'rgba(255,255,255,0.65)',
     paddingHorizontal : 10,
-    color:'#fff',
+    color:'#585858',
     marginBottom : 10,
 
 

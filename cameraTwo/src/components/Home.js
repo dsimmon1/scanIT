@@ -133,22 +133,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 150,
   },
   logoContent:{
     flexGrow :1,
     justifyContent: 'center',
     alignItems: 'center'
   },
-  titleApp: {
-    width : 300,
-    fontSize: 18,
-    textAlign: 'center',
-    margin: 10,
-    color :'#ffffff'
-  },
+
   logo:{
     width:300,
-    height: 100
+    height: 110,
+
   },
   instructions: {
     textAlign: 'center',
