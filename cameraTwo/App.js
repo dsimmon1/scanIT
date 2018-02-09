@@ -12,6 +12,10 @@ import Final from './src/components/Final';
 import BackgroundImage from './src/components/HomeBackground';
 
 export default class App extends Component<{}> {
+
+  
+
+
   render() {
     return (
 

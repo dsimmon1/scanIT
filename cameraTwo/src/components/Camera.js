@@ -37,7 +37,7 @@ class BarcodeScan extends Component {
 
                          <TouchableOpacity
                           onPress={() => {
-                    Actions.final()
+                    Actions.final({qrcode: this.state.qrcode})
                 }}
             >
             <Text

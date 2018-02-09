@@ -25,7 +25,7 @@ class Final extends Component {
         <Tab heading={ <TabHeading><Text>Update</Text></TabHeading>}>
           <Form>
             <Item floatingLabel>
-              <Label>{this.state.qrcode}</Label>
+              <Label>{this.props.qrcode}</Label>
               <Input />
             </Item>
             <Item floatingLabel last>
