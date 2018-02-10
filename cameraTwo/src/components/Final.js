@@ -6,14 +6,41 @@ import {
 } from 'react-native';
 
 import { Button, Container, Tab, Tabs, TabHeading, Header, Content, Form, Item, Input, Label } from 'native-base';
+import { Actions } from 'react-native-router-flux';
+import { API } from '../utils/API'
 
 
 class Final extends Component {
 
   state = {
-    itemName: '',
-    itemCode: '',
+    product_code: this.props.qrcode,
+    description: '',
+    quantity: '',
+    location: 'north'
 
+  }
+
+
+  updateInventory = event => {
+    // API.update({
+    //     product_code: this.state.product_code,
+    //     quantity: this.state.quantity
+    //   })
+    //     .then(res => console.log("updated inventory"))
+    //     .catch(err => console.log(err));
+    console.log(this.state)
+  }
+
+  newInventory = event => {
+      //   API.new({
+      //   product_code: this.state.product_code,
+      //   description: this.state.description,
+      //   quantity: this.state.quantity,
+      //   location: this.state.location
+      // })
+      //   .then(res => console.log("updated inventory"))
+      //   .catch(err => console.log(err));
+      console.log(this.state)
   }
 
 
@@ -24,16 +51,27 @@ class Final extends Component {
         <Tabs>
         <Tab heading={ <TabHeading><Text>Update</Text></TabHeading>}>
           <Form>
-            <Item floatingLabel>
-              <Label>{this.props.qrcode}</Label>
-              <Input />
+            <Item>
+              <Label style={styles.productLabel}>Product Code</Label>
+              <Text style={styles.productLabel}>
+              {this.props.qrcode}
+              this is the code
+              </Text>
             </Item>
             <Item floatingLabel last>
               <Label>Quantity</Label>
-              <Input />
+              <Input 
+              name="quantity"
+              onChangeText={(quantity) => this.setState({quantity})}
+              value={this.state.quantity}
+              />
             </Item>
              <Button success block 
             style={styles.buttonText}
+            onPress={() => {
+              this.updateInventory()
+              Actions.last()
+                  }}
             >
             <Text>Add to Inventory</Text>
           </Button>
@@ -42,9 +80,11 @@ class Final extends Component {
 
           <Tab heading={ <TabHeading><Text>New</Text></TabHeading>}>
           <Form>
-            <Item floatingLabel>
-              <Label>Name</Label>
-              <Input />
+            <Item>
+              <Label style={styles.productLabel}>Product Code</Label>
+              <Text style={styles.productLabel}>
+              {this.props.qrcode} this is the code
+              </Text>
             </Item>
             <Item floatingLabel>
               <Label>WareHouse Number</Label>
@@ -52,14 +92,24 @@ class Final extends Component {
             </Item>
             <Item floatingLabel>
               <Label>Description</Label>
-              <Input />
+              <Input 
+              onChangeText={(description) => this.setState({description})}
+              value={this.state.description}
+              />
             </Item>
             <Item floatingLabel last>
               <Label>Quantity</Label>
-              <Input />
+              <Input 
+              onChangeText={(quantity) => this.setState({quantity})}
+              value={this.state.quantity}
+              />
             </Item>
              <Button success block 
             style={styles.buttonText}
+            onPress={() => {
+              this.newInventory()
+                    Actions.last()
+                  }}
             >
             <Text>Add to Inventory</Text>
           </Button>
@@ -78,6 +128,10 @@ const styles = StyleSheet.create({
  buttonText:{
     margin: 20,
     padding: 5
+  },
+  productLabel:{
+    marginBottom: 5,
+    marginTop: 10
   }
 });
 

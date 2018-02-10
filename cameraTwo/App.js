@@ -10,6 +10,7 @@ import Home from './src/components/Home';
 import Camera from './src/components/Camera';
 import Final from './src/components/Final';
 import BackgroundImage from './src/components/HomeBackground';
+import Last from './src/components/Last';
 
 export default class App extends Component<{}> {
 
@@ -35,6 +36,11 @@ export default class App extends Component<{}> {
           key="final"
           component={Final}
           title="Inventory Input"
+        />
+        <Scene
+          key="last"
+          component={Last}
+          title="Added to Inventory"
         />
       </Scene>
     </Router>
