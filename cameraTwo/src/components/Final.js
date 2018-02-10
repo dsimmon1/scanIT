@@ -28,7 +28,6 @@ class Final extends Component {
     //   })
     //     .then(res => console.log("updated inventory"))
     //     .catch(err => console.log(err));
-    console.log(this.state)
   }
 
   newInventory = event => {
@@ -40,7 +39,6 @@ class Final extends Component {
       // })
       //   .then(res => console.log("updated inventory"))
       //   .catch(err => console.log(err));
-      console.log(this.state)
   }
 
 
@@ -55,7 +53,7 @@ class Final extends Component {
               <Label style={styles.productLabel}>Product Code</Label>
               <Text style={styles.productLabel}>
               {this.props.qrcode}
-              this is the code
+             
               </Text>
             </Item>
             <Item floatingLabel last>
@@ -83,7 +81,7 @@ class Final extends Component {
             <Item>
               <Label style={styles.productLabel}>Product Code</Label>
               <Text style={styles.productLabel}>
-              {this.props.qrcode} this is the code
+              {this.props.qrcode} 
               </Text>
             </Item>
             <Item floatingLabel>
